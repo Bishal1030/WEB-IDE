@@ -4,9 +4,13 @@ const fs = require('fs/promises');
 const { Server : socketServer } = require('socket.io');
 const pty = require('node-pty');
 const path = require('path');
+const cors = require('cors');
 
 const app = express() 
 const server = http.createServer(app);
+
+//middleware
+app.use(cors());
 
 app.get('/files', async(req,res) => {
     const fileTree = await generateFileTree('./user')
