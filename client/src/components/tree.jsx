@@ -1,10 +1,10 @@
 import React from 'react';
 
 const FileTreeNode = ({ fileName, nodes }) => {
-    console.log(nodes)
+    const isDir = !!nodes;
     return (
-        <div>
-            {fileName}
+        <div style= {{marginLeft: '10px'}}>
+            <p className={isDir? 'file-node' : ''}>{fileName}</p>
             {nodes && (
                 <ul>
                     {Object.keys(nodes).map((child) => (
